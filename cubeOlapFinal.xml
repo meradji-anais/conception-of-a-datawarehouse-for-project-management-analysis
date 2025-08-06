@@ -1,0 +1,82 @@
+<Schema name="cubeOlab">
+	<Cube name="cubeOlab" cache="true" enabled="true">
+		<Table name="projets_termin&#233;s" schema="" alias="">
+		</Table>
+		<Dimension type="StandardDimension" foreignKey="ID_TypeDeProjet" name="type_projet">
+			<Hierarchy name="type_projet" hasAll="true" primaryKey="ID_TypeDeProjet" primaryKeyTable="">
+				<Table name="type_projet" schema="" alias="">
+				</Table>
+				<Level name="ID_TypeDeProjet" table="type_projet" column="ID_TypeDeProjet" nameColumn="ID_TypeDeProjet" type="Integer" uniqueMembers="false" levelType="Regular">
+				</Level>
+				<Level name="D&#233;partement" table="type_projet" column="D&#233;partement" nameColumn="D&#233;partement" type="String" uniqueMembers="false" levelType="Regular">
+				</Level>
+				<Level name="Cat&#233;gorie" table="type_projet" column="Cat&#233;gorie" nameColumn="Cat&#233;gorie" type="String" uniqueMembers="false" levelType="Regular">
+				</Level>
+				<Level name="Libell&#233;" table="type_projet" column="Libell&#233;" nameColumn="Libell&#233;" type="String" uniqueMembers="false" levelType="Regular">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" usagePrefix="" foreignKey="ID_client" name="client">
+			<Hierarchy name="Client" hasAll="true" primaryKey="ID_client" caption="">
+				<Table name="client">
+				</Table>
+				<Level name="ID_client" table="client" column="ID_client" nameColumn="ID_client" type="Integer" uniqueMembers="false" levelType="Regular">
+				</Level>
+				<Level name="Nom" table="client" column="Nom" nameColumn="Nom" type="String" uniqueMembers="false" levelType="Regular">
+				</Level>
+				<Level name="Type" table="client" column="Type" nameColumn="Type" type="String" uniqueMembers="false" levelType="Regular">
+				</Level>
+				<Level name="localisation" table="client" column="localisation" nameColumn="localisation" type="String" uniqueMembers="false" levelType="Regular">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" foreignKey="ID_equipe" name="equipe">
+			<Hierarchy name="equipe" hasAll="true" allMemberCaption="" primaryKey="ID_equipe">
+				<Table name="equipe">
+				</Table>
+				<Level name="ID_equipe" table="equipe" column="ID_equipe" nameColumn="ID_equipe" type="Integer" uniqueMembers="false" levelType="Regular">
+				</Level>
+				<Level name="exp_moyenne_members" table="equipe" column="exp_moyenne_membres" nameColumn="exp_moyenne_membres" type="Numeric" uniqueMembers="false" levelType="Regular">
+				</Level>
+				<Level name="nb_membres" table="equipe" column="nb_membres" nameColumn="nb_membres" type="Integer" uniqueMembers="false" levelType="Regular">
+				</Level>
+				<Level name="D&#233;partement" table="equipe" column="D&#233;partement" nameColumn="D&#233;partement" parentColumn="" type="String" uniqueMembers="false" levelType="Regular">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" foreignKey="ID_temps" name="temps">
+			<Hierarchy name="temps" hasAll="true" primaryKey="ID_temps">
+				<Table name="temps">
+				</Table>
+				<Level name="ID_temps" table="temps" column="ID_temps" nameColumn="ID_temps" ordinalColumn="" type="Integer" uniqueMembers="false" levelType="Regular">
+				</Level>
+				<Level name="Trimestre" table="temps" column="Trimestre" nameColumn="Trimestre" type="Integer" uniqueMembers="false" levelType="Regular" caption="">
+				</Level>
+				<Level name="Semestre" table="temps" column="Semestre" nameColumn="Semestre" nullParentValue="" type="Integer" uniqueMembers="false" levelType="Regular">
+				</Level>
+				<Level name="Ann&#233;e" table="temps" column="Ann&#233;e" nameColumn="Ann&#233;e" type="Integer" uniqueMembers="false" levelType="Regular">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Dimension type="StandardDimension" foreignKey="ID_chefProjet" name="chefs_projet">
+			<Hierarchy name="chefs_projet" hasAll="true" allMemberCaption="" primaryKey="ID_chefProjet" primaryKeyTable="">
+				<Table name="chefs_projet" schema="" alias="">
+				</Table>
+				<Level name="ID_ChefProjet" table="chefs_projet" column="ID_ChefProjet" nameColumn="ID_ChefProjet" ordinalColumn="" parentColumn="" type="Integer" uniqueMembers="false" levelType="Regular">
+				</Level>
+				<Level name="Nom_ChefProjet" table="chefs_projet" column="Nom_ChefProjet" nameColumn="Nom_ChefProjet" parentColumn="" type="String" uniqueMembers="false" levelType="Regular">
+				</Level>
+				<Level approxRowCount="" name="Exp&#233;rience_ann&#233;es" table="chefs_projet" column="Exp&#233;rience_ann&#233;es" nameColumn="Exp&#233;rience_ann&#233;es" parentColumn="" type="Integer" uniqueMembers="false" levelType="Regular" formatter="">
+				</Level>
+				<Level name="Sp&#233;cialisation" table="chefs_projet" column="Sp&#233;cialisation" nameColumn="Sp&#233;cialisation" type="String" uniqueMembers="false" levelType="Regular">
+				</Level>
+				<Level name="Nombre_projets_men&#233;s" table="chefs_projet" column="Nombre_projets_men&#233;s" nameColumn="Nombre_projets_men&#233;s" parentColumn="" nullParentValue="" type="Numeric" uniqueMembers="false" levelType="Regular">
+				</Level>
+			</Hierarchy>
+		</Dimension>
+		<Measure name="Retard_jours" column="Retard_jours" datatype="Integer" formatString="" aggregator="sum" visible="true">
+		</Measure>
+		<Measure name="depassement_budget" column="depassement_budget" datatype="Numeric" formatString="" aggregator="sum" visible="true">
+		</Measure>
+	</Cube>
+</Schema>
