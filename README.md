@@ -10,4 +10,4 @@ Technologies used:
 The raw data collected is purely fictitious and intended for demonstration purposes only.
 The star schema is included in the repository. 
 
-You can find in the repository a detailed french documentation that provides clear explanations and the different steps ( including the ETL workflow ) leading to the power bi visualizations displayed starting from page ... 
+You can find in the repository a detailed french documentation that provides clear explanations and the different steps ( including the ETL workflow ) leading to the power bi visualizations displayed starting from page 33.
